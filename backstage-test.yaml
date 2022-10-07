@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  namespace: default
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/backstage/backstage/tree/master/packages/catalog-model/examples/components/petstore-component.yaml
+    backstage.io/managed-by-origin-location: url:https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-components.yaml
+    backstage.io/view-url: https://github.com/backstage/backstage/tree/master/packages/catalog-model/examples/components/petstore-component.yaml
+    backstage.io/edit-url: https://github.com/backstage/backstage/edit/master/packages/catalog-model/examples/components/petstore-component.yaml
+    backstage.io/source-location: url:https://github.com/backstage/backstage/tree/master/packages/catalog-model/examples/components/
+  name: petstore
+  description: The Petstore is an example API used to show features of the OpenAPI spec.
+  links:
+    - url: https://github.com/swagger-api/swagger-petstore
+      title: GitHub Repo
+      icon: github
+  uid: aa69e531-7ca4-4d83-81d2-f71bc689497e
+  etag: 46ac304e3f35e20adb3b5523dde7552758fb8453
+relations:
+  - type: ownedBy
+    targetRef: group:default/team-c
+    target:
+      kind: group
+      namespace: default
+      name: team-c
+  - type: providesApi
+    targetRef: api:default/hello-world
+    target:
+      kind: api
+      namespace: default
+      name: hello-world
+  - type: providesApi
+    targetRef: api:default/petstore
+    target:
+      kind: api
+      namespace: default
+      name: petstore
+  - type: providesApi
+    targetRef: api:default/streetlights
+    target:
+      kind: api
+      namespace: default
+      name: streetlights
+spec:
+  type: service
+  lifecycle: experimental
+  owner: team-c
+  providesApis:
+    - petstore
+    - streetlights
+    - hello-world
