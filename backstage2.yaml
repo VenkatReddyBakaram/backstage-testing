@@ -1,5 +1,4 @@
-openapi: "3.0.0"
-info:
+apiVersion: backstage.io/v1alpha1info:
   version: 1.0.0
   title: Swagger Petstore
   license:
